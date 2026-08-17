@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Calk-AU Widgets — embed Australian tax &amp; finance calculators</title>
+<meta name="description" content="Free embeddable Australian calculators: pay, income tax, GST, stamp duty, mortgage, super and HECS. One line of HTML, always on current 2026-27 rates, no signup.">
+<link rel="canonical" href="https://cryptoagent666.github.io/calk-au-widgets/">
+<meta property="og:title" content="Calk-AU Widgets — embed Australian tax &amp; finance calculators">
+<meta property="og:description" content="Twelve Australian calculators you can drop into any page with one line of HTML. Always on current ATO and state revenue figures.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://cryptoagent666.github.io/calk-au-widgets/">
+<style>
+  :root {
+    --bg: #f7fafc; --card: #ffffff; --ink: #0f172a; --muted: #64748b;
+    --line: #e2e8f0; --teal: #00698f; --teal-ink: #015c7d; --code-bg: #0f172a;
+    --code-ink: #e2e8f0;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b1220; --card: #131c2b; --ink: #e7edf5; --muted: #94a3b8;
+      --line: #23304a; --teal: #4cc3ea; --teal-ink: #8ad6f2; --code-bg: #060b14;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 48px 20px 72px; }
+  header { margin-bottom: 40px; }
+  h1 { font-size: clamp(28px, 5vw, 40px); line-height: 1.15; letter-spacing: -.02em; margin: 0 0 12px; }
+  h2 { font-size: 22px; letter-spacing: -.01em; margin: 48px 0 8px; }
+  h3 { font-size: 17px; margin: 0 0 12px; }
+  p { margin: 0 0 14px; }
+  .lead { font-size: 18px; color: var(--muted); max-width: 62ch; }
+  a { color: var(--teal-ink); }
+  .pills { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 0; }
+  .pill {
+    font-size: 13px; font-weight: 600; padding: 5px 12px; border-radius: 999px;
+    background: color-mix(in srgb, var(--teal) 12%, transparent);
+    color: var(--teal-ink); border: 1px solid color-mix(in srgb, var(--teal) 25%, transparent);
+  }
+  pre {
+    background: var(--code-bg); color: var(--code-ink); padding: 16px 18px;
+    border-radius: 12px; overflow-x: auto; font-size: 13.5px; line-height: 1.5;
+    margin: 0 0 18px;
+  }
+  code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+    padding: 20px; margin: 0 0 28px;
+  }
+  .grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+  .slug {
+    display: block; background: var(--card); border: 1px solid var(--line);
+    border-radius: 10px; padding: 10px 12px; text-decoration: none; color: var(--ink);
+  }
+  .slug code { font-size: 12.5px; color: var(--teal-ink); }
+  .slug span { display: block; font-size: 13px; color: var(--muted); margin-top: 2px; }
+  table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--line); }
+  th { font-weight: 600; }
+  footer {
+    margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
+    font-size: 14px; color: var(--muted);
+  }
+  .demo { margin: 0 0 32px; }
+  .demo-note { font-size: 13.5px; color: var(--muted); margin: 0 0 10px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>Embed Australian calculators with one line of HTML</h1>
+  <p class="lead">
+    Twelve tax and finance calculators for your blog, brokerage site, HR portal or
+    intranet. They run in the visitor's browser, stay on the current 2026-27 ATO and
+    state revenue figures, and cost nothing.
+  </p>
+  <div class="pills">
+    <span class="pill">No signup</span>
+    <span class="pill">No API key</span>
+    <span class="pill">No cookies</span>
+    <span class="pill">Auto-resizing</span>
+    <span class="pill">MIT loader</span>
+  </div>
+</header>
+
+<h2>Two ways to embed</h2>
+
+<div class="card">
+  <h3>1. Plain iframe — works anywhere</h3>
+  <pre><code>&lt;iframe src="https://calk-au.com/embed/pay-calculator/"
+        width="100%" height="1050" style="border:0;max-width:720px"
+        title="Pay Calculator — Calk-AU" loading="lazy"&gt;&lt;/iframe&gt;</code></pre>
+  <p class="demo-note">
+    Paste into a WordPress Custom HTML block, a Squarespace code block, anywhere.
+    Fixed height, so tall results can leave whitespace.
+  </p>
+</div>
+
+<div class="card">
+  <h3>2. With the loader — resizes itself</h3>
+  <pre><code>&lt;div data-calk-au="pay-calculator"&gt;&lt;/div&gt;
+&lt;script src="https://cdn.jsdelivr.net/gh/CryptoAgent666/calk-au-widgets@v1.0.0/calk-au-embed.js" async&gt;&lt;/script&gt;</code></pre>
+  <p class="demo-note">
+    The widget reports its height and the iframe follows. One script tag covers
+    every widget on the page.
+  </p>
+</div>
+
+<h2>Live: pay calculator</h2>
+<p class="demo-note">
+  This one is embedded with the loader — type a salary and watch the frame grow
+  instead of scrolling inside itself.
+</p>
+<div class="demo"><div data-calk-au="pay-calculator"></div></div>
+
+<h2>Live: stamp duty, opened pre-filled</h2>
+<p class="demo-note">
+  Same loader, with <code>data-query</code> passing a $750,000 first-home purchase in NSW.
+</p>
+<div class="demo">
+  <div data-calk-au="stamp-duty-calculator"
+       data-query="price=750000&amp;state=nsw&amp;buyer=first_home"></div>
+</div>
+
+<h2>Live: GST, pinned to light theme</h2>
+<div class="demo">
+  <div data-calk-au="gst-calculator" data-theme="light" data-max-width="620px"></div>
+</div>
+
+<h2>Available calculators</h2>
+<div class="grid">
+  <a class="slug" href="https://calk-au.com/calculator/pay-calculator/"><code>pay-calculator</code><span>Take-home pay</span></a>
+  <a class="slug" href="https://calk-au.com/calculator/income-tax-calculator/"><code>income-tax-calculator</code><span>Income tax + Medicare</span></a>
+  <a class="slug" href="https://calk-au.com/calculator/gst-calculator/"><code>gst-calculator</code><span>Add or remove GST</span></a>
+  <a class="slug" href="https://calk-au.com/calculator/stamp-duty-calculator/"><code>stamp-duty-calculator</code><span>Transfer duty, 8 states</span></a>
+  <a class="slug" href="https://calk-au.com/calculator/mortgage-repayment-calculator/"><code>mortgage-repayment-calculator</code><span>Repayments + interest</span></a>
+  <a class="slug" href="https://calk-au.com/calculator/super-calculator/"><code>super-calculator</code><span>Balance at retirement</span></a>
+  <a class="slug" href="https://calk-au.com/calculator/hecs-help-calculator/"><code>hecs-help-calculator</code><span>HECS repayments</span></a>
+  <a class="slug" href="https://calk-au.com/calculator/pay-rise-calculator/"><code>pay-rise-calculator</code><span>What you keep from a raise</span></a>
+  <a class="slug" href="https://calk-au.com/calculator/salary-comparison-calculator/"><code>salary-comparison-calculator</code><span>Two offers compared</span></a>
+  <a class="slug" href="https://calk-au.com/calculator/fhss-calculator/"><code>fhss-calculator</code><span>First Home Super Saver</span></a>
+  <a class="slug" href="https://calk-au.com/calculator/compound-interest-calculator/"><code>compound-interest-calculator</code><span>Compound growth</span></a>
+  <a class="slug" href="https://calk-au.com/calculator/percentage-calculator/"><code>percentage-calculator</code><span>Percentages</span></a>
+</div>
+
+<h2>Options</h2>
+<table>
+  <thead><tr><th>Attribute</th><th>Default</th><th>Purpose</th></tr></thead>
+  <tbody>
+    <tr><td><code>data-calk-au</code></td><td>required</td><td>Calculator slug</td></tr>
+    <tr><td><code>data-height</code></td><td>per calculator</td><td>Starting height before the first self-report</td></tr>
+    <tr><td><code>data-max-width</code></td><td><code>720px</code></td><td>Responsive down to 320px</td></tr>
+    <tr><td><code>data-theme</code></td><td>system</td><td><code>light</code> or <code>dark</code></td></tr>
+    <tr><td><code>data-title</code></td><td>calculator name</td><td>iframe title for screen readers</td></tr>
+    <tr><td><code>data-query</code></td><td>—</td><td>Pass-through query, e.g. <code>pay=90000&amp;hecs=1</code></td></tr>
+  </tbody>
+</table>
+
+<h2>Why the numbers stay right</h2>
+<p>
+  Australian rates move every July, and half of them move again mid-year. The second
+  marginal bracket fell to 15% on 1 July 2026, super guarantee hit 12%, HECS
+  thresholds reindexed, and every state rewrote its stamp duty and registration
+  schedules. Calk-AU tracks more than a thousand government-set values with weekly
+  source monitoring and quarterly re-verification against primary sources, so an
+  embedded widget updates the moment a rate changes. You maintain nothing.
+</p>
+
+<h2>Terms</h2>
+<p>
+  Free for commercial and personal use, client sites included. Keep the
+  "Powered by Calk-AU" line inside the widget visible, and don't present results as
+  financial advice. The loader script is MIT licensed; the calculators stay hosted by
+  Calk-AU.
+</p>
+
+<footer>
+  <p>
+    <a href="https://github.com/CryptoAgent666/calk-au-widgets">Source on GitHub</a> ·
+    <a href="https://calk-au.com/widgets/">Widget gallery</a> ·
+    <a href="https://calk-au.com/">All 130 calculators</a> ·
+    <a href="https://calk-au.com/methodology/">Methodology</a>
+  </p>
+  <p>Built and maintained by Konstantin Iakovlev. Data from the ATO and state revenue offices.</p>
+</footer>
+
+</div>
+<script src="./calk-au-embed.js" async></script>
+</body>
+</html>
