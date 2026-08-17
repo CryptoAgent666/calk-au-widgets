@@ -46,6 +46,12 @@ The loader in this repository fixes that. Add a placeholder and one script:
 The widget now reports its own height and the iframe grows and shrinks with it.
 One script tag serves any number of widgets on the page.
 
+A widget far down a long page reports its height once it scrolls into view, not at
+page load: browsers throttle timers in offscreen iframes, so the starting height
+from the table below is what a visitor sees until they reach the widget. In
+practice that is invisible — by the time anyone can interact with a calculator, it
+has already sized itself.
+
 ## Options
 
 Set them as attributes on the placeholder:
